@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/jquery-1.12.1.min.js"></script>
+</head>
+
+<body>
+
+    <h3>VALIDATION FORM USING HTML CSS AND JAVASCRIPT</h3>
+
+    <form id="form">
+        <div class="inputBox">  
+            <input type="text" id="email" placeholder="Enter Email Address" onkeydown="validation()">
+            <span id="text"></span>
+        </div>
+    </form>
+
+
+    <script>
+
+        function validation(){
+            var form = document.getElementById("form");
+            var email = document.getElementById("email").value ;
+            var text = document.getElementById("text");
+
+
+            var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+            if(email.match(pattern)){
+                form.classList.add("valid");
+                form.classList.remove("invalid");
+                text.innerHTML = "Your Email Address is Valid";
+                text.style.color = "green";
+            }
+            else
+            {
+                form.classList.add("invalid");
+                form.classList.remove("valid");
+                text.style.color = "red";
+            }
+
+            if(email == ""){
+                form.classList.remove("valid");
+                form.classList.remove("invalid");
+                text.innerHTML = "";
+                text.style.color = "black";
+            }
+        }
+
+
+    </script>
+
+
+
+</body>
+</html>
